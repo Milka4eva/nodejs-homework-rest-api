@@ -13,7 +13,7 @@ const getById = async (req, res) => {
 	if (contact) {
 		res.status(200).json(contact)
 	} else {
-		res.status(404).json({ message: 'Not found' })
+		res.status(404).json({ message: 'Sorry, not found' })
 	}
 }
 
@@ -39,14 +39,14 @@ const updateContact = async (req, res, next) => {
 		const { contactId } = req.params
 		const fields = req.body
 		if (!name && !email && !phone) {
-			res.status(400).json({ message: 'missing fields' })
+			res.status(400).json({ message: 'Sorry, missing fields' })
 		}
 		const contact = await service.updateContact(contactId, fields)
 
 		if (contact) {
 			res.status(200).json(contact)
 		} else {
-			res.status(404).json({ message: 'Not found' })
+			res.status(404).json({ message: 'Sorry, not found' })
 		}
 	} catch (error) {
 		console.error(error.message)
@@ -61,14 +61,14 @@ const setFavorite = async (req, res, next) => {
 		const { favorite } = req.body
 		const { contactId } = req.params
 		if (!favorite && favorite !== false) {
-			res.status(400).json({ message: 'missing field favorite' })
+			res.status(400).json({ message: 'Sorry, missing field favorite' })
 		}
 		const contact = await service.updateStatusContact(contactId, favorite)
 
 		if (contact) {
 			res.status(200).json(contact)
 		} else {
-			res.status(404).json({ message: 'Not found' })
+			res.status(404).json({ message: 'Sorry, not found' })
 		}
 	} catch (error) {
 		console.error(error.message)
@@ -81,7 +81,7 @@ const removeContact = async (req, res, next) => {
 		const { contactId } = req.params
 		const contactToRemove = await service.deleteContact(contactId)
 		if (!contactToRemove) {
-			return res.status(404).json({ message: 'Not found contact' })
+			return res.status(404).json({ message: 'Sorry, could not find contact' })
 		} else {
 			res.status(200).json({ message: 'Contact deleted' })
 		}
