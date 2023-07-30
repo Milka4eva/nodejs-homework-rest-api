@@ -4,7 +4,7 @@ require('dotenv').config()
 require('colors')
 
 const PORT = process.env.PORT || 3000
-const uriDb = process.env.DB_HOST
+const uriDb = process.env.MONGO_URL
 
 mongoose.set('strictQuery', true)
 
