@@ -14,7 +14,7 @@ const handleMongooseError = (error, doc, next) => {
   }
 
   if (message.includes("subscription")) {
-    next(setApiErrorStatus(409, `Subscription must be one of the list: [starter, pro, business]`));
+    next(setApiErrorStatus(409, `Subscription must be one of the list: [starter, professional, business]`));
   }
 
 
