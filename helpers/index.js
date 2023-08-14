@@ -1,13 +1,15 @@
 const ctrlWrapper = require("./ctrlWrapper");
-const formattingAvatar = require("./formattingAvatar");
+const formatingAvatar = require("./formatingAvatar");
 const handleMongooseError = require("./handleMongooseError");
 const isValidateNoNull = require("./isValidateNoNull");
+const sendEmail = require("./sendEmail");
 const setApiErrorStatus = require("./setApiErrorStatus");
 
 module.exports = {
   ctrlWrapper,
-  formattingAvatar,
+  formatingAvatar,
   handleMongooseError,
   isValidateNoNull,
+  sendEmail,
   setApiErrorStatus,
 };
